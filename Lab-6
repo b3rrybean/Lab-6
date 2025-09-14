@@ -4,37 +4,57 @@ using namespace std;
 // Function to enter data into dynamic array
 void enterArrayData(double *arr, int size)
 {
-    // TODO: populate array with user input
-    cout << "Data entry for the array: " << endl;
-    for (int i = 0; i <= size; i++)
-    cout << "    > Elemeny #" << i << ": ";
-    cin >> *(arr + i)
+    cout << "Data entry for the array:" << endl;
+    for (int i = 0; i < size; i++)
+    {
+        // TODO: populate array with user input
+        cout << "    > Element #" << i << ": ";
+        cin >> *(arr + i);
+    }
     cout << "Data entry complete." << endl;
 }
 
 // Function to output array contents
 void outputArrayData(double *arr, int size)
 {
-    // TODO: display array elements on one line
+     // TODO: display array elements on one line
+    cout << "Outputting array elements: ";
+    for (int i = 0; i < size; i++)
+    {
+        cout << *(arr + i) << " ";
+    }
+    cout << endl;
 }
 
 // Function to calculate sum of array
 double sumArray(double *arr, int size)
 {
     // TODO: calculate sum
-    return 0; //placeholder
+    double total = 0.0;
+    for (int i = 0; i < size; i++)
+    {
+        total += *(arr + i);
+    }
+    return total;
 }
 
-int main ()
+// Main function
+int main()
 {
     const int SIZE = 5;
 
-    // TODO: allocate dynamic array
-    double *myArray = nullptr;
+    // Allocate dynamic array
+    double *myArray = new double[SIZE];
 
-    // TODO: call functions (enter, output, sum)
+    // Call functions
+    enterArrayData(myArray, SIZE);
+    outputArrayData(myArray, SIZE);
+    double total = sumArray(myArray, SIZE);
 
-    //TODO: free memory
+    cout << "Sum of values: " << total << endl;
+
+    // Free dynamic memory
+    delete [] myArray;
 
     return 0;
 }
